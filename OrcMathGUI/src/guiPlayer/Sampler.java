@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import david.Health;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.KeyedComponent;
@@ -74,7 +74,7 @@ public class Sampler extends GUIApplication {
 			scroll.update();
 			
 			viewObjects.add(scroll);
-			
+			viewObjects.add(new Health());
 			
 			TextBox box = new TextBox(20, 160, 200, 100, "Try typing here.");
 			viewObjects.add(box);
