@@ -35,7 +35,7 @@ public class Catalog {
 		int buildDate;
 		System.out.println("What is the year the car you want to add was built?");
 		String year = in.nextLine();
-		while(!validInput(year)) {
+		while(!validInputNumber(year)) {
 			System.out.println("You need to use the format YYYY where Y is a digit");
 			year = in.nextLine();
 		}
@@ -47,7 +47,7 @@ public class Catalog {
 		
 	}
 	
-	public static boolean validInput(String input) {
+	public static boolean validInputNumber(String input) {
 		if(input.length() == 4) {
 			if((input.substring(0,1).compareTo("0") >= 0) && input.substring(1,2).compareTo("0") >= 0 && input.substring(2,3).compareTo("0") >= 0 && input.substring(3,4).compareTo("0") >= 0)
 				return true;
