@@ -28,7 +28,7 @@ public class FileLoadingConsole {
 
  displayContent(content);
 
- testSaveContent("test.csv");
+ testSaveContent("test.txt");
 
 
 
@@ -102,7 +102,7 @@ public class FileLoadingConsole {
 
  String line = "";
 
- //a BufferedReader enables us to read teh file one line at a time
+ //a BufferedReader enables us to read the file one line at a time
 
  BufferedReader br = new BufferedReader(fileReader);
 
