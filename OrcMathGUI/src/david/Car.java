@@ -5,12 +5,12 @@ import java.awt.Graphics2D;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Component;
 
-public class Cars extends AnimatedComponent {
+public class Car extends AnimatedComponent {
 
 	private int buildDate;
 	private String company;
 	
-	public Cars(int buildDate, String company) {
+	public Car(int buildDate, String company) {
 		super(100, 100, 130, 130);
 		this.buildDate = buildDate;
 		this.company = company;

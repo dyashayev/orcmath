@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class Catalog {
 	
 	static Scanner in = new Scanner(System.in);
-	private static ArrayList<Cars> catalog;
+	private static ArrayList<Car> catalog;
 	
 	public Catalog() {
-		catalog = new ArrayList<Cars>();
-		catalog.add(new Cars(2012, "Ford"));
-		catalog.add(new Cars(2017, "Toyota"));
-		catalog.add(new Cars(2015, "Honda"));
+		catalog = new ArrayList<Car>();
+		catalog.add(new Car(2012, "Ford"));
+		catalog.add(new Car(2017, "Toyota"));
+		catalog.add(new Car(2015, "Honda"));
 	}
 	
 	public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class Catalog {
 	
 	public static String getContents() {
 		String data = "";
-		for(Cars C: catalog) {
+		for(Car C: catalog) {
 			data+= C + "\n";
 			
 		}
@@ -43,7 +43,7 @@ public class Catalog {
 		System.out.println("What is the company name of the car you want to add?");
 		String company = in.nextLine();
 		System.out.println("You're car was added!");
-		catalog.add(new Cars(buildDate, company));
+		catalog.add(new Car(buildDate, company));
 		
 	}
 	
