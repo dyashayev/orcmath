@@ -10,7 +10,7 @@ public class CustomButton extends Button{
 
 	private String s1 = "yes";
 	private String s2 = "no";
-	private Color ORANGE;
+	private Color colour;
 
 	public CustomButton(int x, int y) {
 		super(x, y, 100, 50, "", null);
@@ -35,6 +35,6 @@ public class CustomButton extends Button{
 	}
 
 	void setIconColor(Color color) {
-		Color = color;
+		colour = color;
 	}
 }
