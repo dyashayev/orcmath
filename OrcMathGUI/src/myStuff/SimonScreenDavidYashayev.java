@@ -1,5 +1,6 @@
 package myStuff;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +46,49 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 
 	public void addButtons() {
 		int numberOfButtons = 4;
+		Color[] Colors = {Color.blue,Color.green,Color.red,Color.yellow};
 		ButtonInterfaceDavidYashayev[] buttons = new ButtonInterfaceDavidYashayev[numberOfButtons];
+		for(int i = 0; i < numberOfButtons;i++) {
+			final ButtonInterfaceDavidYashayev b = getAButton();
+			b.setColor(Colors[i]); 
+		    b.setX(20*(int) Math.cos(i));
+		    b.setY(10*(int) Math.sin(i));
+		    b.setAction(new Action(){
+
+		    	public void act(){
+		    		if(acceptingInput) {
+		    			Thread blink = new Thread(new Runnable(){
+
+		    				public void run(){
+		    					b.highlight();
+		    					try {
+		    						Thread.sleep(800);
+		    						} catch (InterruptedException e) {
+		    						// TODO Auto-generated catch block
+		    						e.printStackTrace();
+		    						}
+		    						b.dim();
+		    				}});
+		    			blink.start();
+		    			if(b == moves.get(sequenceIndex).getButton()) {
+		    				sequenceIndex++;
+		    			}else {
+		    				ProgressInterfaceDavidYashayev.gameOver();
+		    			}
+		    			if(sequenceIndex == moves.size()){ 
+		    			    Thread nextRound = new Thread(SimonScreenDavidYashayev.this); 
+		    			    nextRound.start(); 
+		    			}
+		    		}
+		    	}
+
+		    	});
+			buttons[i] = b;
+		}
+	}
+
+	public ButtonInterfaceDavidYashayev getAButton() {
+		return null;
 	}
 
 	public ProgressInterfaceDavidYashayev getProgress() {
@@ -66,7 +109,50 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 
 	@Override
 	public void run() {
+		 text.setText("");
+		 nextRound();
+	}
+
+	private void nextRound() {
+		acceptingInput = false;
+		roundNumber++;
+		moves.add((MoveInterfaceDavidYashayev) randomMove());
 		
+		progress.setRound(roundNumber);
+		progress.setSequenceSize(moves.size());
+		    
+		changeText("Simon's Turn.");
+		playSequence();
+		changeText("Your Turn.");
+	}
+
+	private void playSequence() {
+		ButtonInterfaceDavidYashayev b = null;
+		
+		for(int i = 0; i < moves.size(); i++) {
+			if(b != null) {
+				b.dim();
+			}
+			b = moves.get(i).getButton();
+			b.highlight();
+			int sleepTime = 10000/roundNumber;
+			try {
+				Thread.sleep(sleepTime);
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		b.dim();
+	}
+
+	private void changeText(String string) {
+		text.setText(string);
+		try {
+			Thread.sleep(1000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		text.setText("");
 	}
 
 }
