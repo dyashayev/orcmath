@@ -9,11 +9,13 @@ public class SimonGameDavidYashayev extends GUIApplication {
 	public static void main(String[] args) {
 		SimonGameDavidYashayev screen = new SimonGameDavidYashayev(750,750);
 		screen.initScreen();
+		Thread go = new Thread(screen);
+		go.start();
 	}
 	
 	public SimonGameDavidYashayev(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		setVisible(true);
 	}
 
 	@Override

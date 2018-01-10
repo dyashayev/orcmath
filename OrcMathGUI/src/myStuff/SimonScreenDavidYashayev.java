@@ -4,25 +4,28 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itextpdf.text.pdf.TextField;
+
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 
 public class SimonScreenDavidYashayev extends ClickableScreen implements Runnable {
 
-	private TextLabel text;
-	private ButtonInterfaceDavidYashayev[] buttons;
-	private ProgressInterfaceDavidYashayev progress;
-	private ArrayList<MoveInterfaceDavidYashayev> moves;
-	private int roundNumber;
-	private boolean acceptingInput;
-	private int sequenceIndex;
-	private int lastSelectedButton;
+	//private TextLabel text;
+	//private ButtonInterfaceDavidYashayev[] buttons;
+	//private ProgressInterfaceDavidYashayev progress;
+	//private ArrayList<MoveInterfaceDavidYashayev> moves;
+	//private int roundNumber;
+	//private boolean acceptingInput;
+	//private int sequenceIndex;
+	//private int lastSelectedButton;
 	private Button greenButton;
 	private Button yellowButton;
 	private Button redButton;
 	private Button blueButton;
 	private Button startButton;
+	private TextArea text;
 	
 	public SimonScreenDavidYashayev(int width, int height) {
 		super(width, height);
@@ -37,31 +40,33 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		greenButton = new Button(30,100,30,30,"green", new Action() {
+		text = new TextArea(100, 200, 100, 200, "Round: 1. Sequence Length: 3");
+		getViewObjects().add(text);
+		greenButton = new Button(30,100,40,40,"green", new Action() {
 			public void act() {
 				
 			}
 		});
 		getViewObjects().add(greenButton);
-		blueButton = new Button(30,30,30,30,"blue", new Action() {
+		blueButton = new Button(30,30,40,40,"blue", new Action() {
 			public void act() {
 				
 			}
 		});
 		getViewObjects().add(blueButton);
-		yellowButton = new Button(100,30,30,30,"yellow", new Action() {
+		yellowButton = new Button(100,30,40,40,"yellow", new Action() {
 			public void act() {
 				
 			}
 		});
 		getViewObjects().add(yellowButton);
-		redButton = new Button(100,100,30,30,"red", new Action() {
+		redButton = new Button(100,100,40,40,"red", new Action() {
 			public void act() {
 				
 			}
 		});
 		getViewObjects().add(redButton);
-		startButton = new Button(200,100,30,30,"start", new Action() {
+		startButton = new Button(200,100,40,40,"start", new Action() {
 			public void act() {
 				
 			}
