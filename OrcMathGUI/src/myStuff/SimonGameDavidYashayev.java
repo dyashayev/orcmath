@@ -4,8 +4,11 @@ import guiTeacher.GUIApplication;
 
 public class SimonGameDavidYashayev extends GUIApplication {
 
+	private static SimonScreenDavidYashayev simonGameScreen;
+	
 	public static void main(String[] args) {
-		
+		SimonGameDavidYashayev screen = new SimonGameDavidYashayev(750,750);
+		screen.initScreen();
 	}
 	
 	public SimonGameDavidYashayev(int width, int height) {
@@ -15,8 +18,8 @@ public class SimonGameDavidYashayev extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		// TODO Auto-generated method stub
-		
+		SimonGameDavidYashayev.simonGameScreen = new SimonScreenDavidYashayev(getWidth(), getHeight());
+		setScreen(simonGameScreen);
 	}
 
 }

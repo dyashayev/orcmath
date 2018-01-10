@@ -18,6 +18,11 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 	private boolean acceptingInput;
 	private int sequenceIndex;
 	private int lastSelectedButton;
+	private Button greenButton;
+	private Button yellowButton;
+	private Button redButton;
+	private Button blueButton;
+	private Button startButton;
 	
 	public SimonScreenDavidYashayev(int width, int height) {
 		super(width, height);
@@ -26,11 +31,52 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 	}
 
 	@Override
+	public void run() {
+		
+	}
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		greenButton = new Button(30,100,30,30,"green", new Action() {
+			public void act() {
+				
+			}
+		});
+		getViewObjects().add(greenButton);
+		blueButton = new Button(30,30,30,30,"blue", new Action() {
+			public void act() {
+				
+			}
+		});
+		getViewObjects().add(blueButton);
+		yellowButton = new Button(100,30,30,30,"yellow", new Action() {
+			public void act() {
+				
+			}
+		});
+		getViewObjects().add(yellowButton);
+		redButton = new Button(100,100,30,30,"red", new Action() {
+			public void act() {
+				
+			}
+		});
+		getViewObjects().add(redButton);
+		startButton = new Button(200,100,30,30,"start", new Action() {
+			public void act() {
+				
+			}
+		});
+		getViewObjects().add(startButton);
+	}
+
+	
+/*	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		addButtons();
-		for(ButtonInterfaceDavidYashayev b: buttons){ 
-		    viewObjects.add((Visible) b); 
-		}
+		viewObjects.add(greenButton);
+		viewObjects.add(redButton);
+		viewObjects.add(blueButton);
+		viewObjects.add(yellowButton);
 		progress = getProgress();
 		text = new TextLabel(130,230,300,40,"Let's play Simon!");
 		moves = new ArrayList<MoveInterfaceDavidYashayev>();
@@ -48,9 +94,9 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 		int numberOfButtons = 4;
 		Color[] Colors = {Color.blue,Color.green,Color.red,Color.yellow};
 		ButtonInterfaceDavidYashayev[] buttons = new ButtonInterfaceDavidYashayev[numberOfButtons];
-		for(int i = 0; i < numberOfButtons;i++) {
-			final ButtonInterfaceDavidYashayev b = getAButton();
-			b.setColor(Colors[i]); 
+		
+		for(int i = 0; i < 4;i++) {
+			final Button b = getAButton();
 		    b.setX(20*(int) Math.cos(i));
 		    b.setY(10*(int) Math.sin(i));
 		    b.setAction(new Action(){
@@ -64,7 +110,6 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 		    					try {
 		    						Thread.sleep(800);
 		    						} catch (InterruptedException e) {
-		    						// TODO Auto-generated catch block
 		    						e.printStackTrace();
 		    						}
 		    						b.dim();
@@ -85,11 +130,10 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 		    	});
 			buttons[i] = b;
 		}
-	}
 
-	public ButtonInterfaceDavidYashayev getAButton() {
-		return null;
-	}
+	//public Button getAButton() {
+	//	return greenButton;
+	//}
 
 	public ProgressInterfaceDavidYashayev getProgress() {
 		return null;
@@ -154,5 +198,5 @@ public class SimonScreenDavidYashayev extends ClickableScreen implements Runnabl
 		}
 		text.setText("");
 	}
-
+*/
 }
