@@ -11,14 +11,14 @@ public class Tester extends GUIApplication{
 	}
 
 	public static void main(String[] args) {
-		Tester yes = new Tester(1000, 1000);
-		Thread go = new Thread(yes);
+		Tester thread = new Tester(1000, 1000);
+		Thread go = new Thread(thread);
 		go.start();
 	}
 
 	@Override
 	public void initScreen() {
-		TestAssignment test = new TestAssignment(getWidth(), getHeight());
+		Screen test = new Screen(getWidth(), getHeight());
 		setScreen(test);
 	}
 

@@ -6,13 +6,13 @@ import guiTeacher.components.*;
 import guiTeacher.interfaces.*;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
-public class TestAssignment extends FullFunctionScreen{
+public class Screen extends FullFunctionScreen{
 
 	private TextArea notification;
 	private Button winButton;
 	private Button loseButton;
 	
-	public TestAssignment(int width, int height) {
+	public Screen(int width, int height) {
 		super(width, height);
 	}
 
